@@ -1,35 +1,47 @@
 //
-//  LastSliderViewController.swift
-//  ImageSlider
+//  SliderFourViewController.swift
+//  smartclub
 //
-//  Created by Mominur Rahman on 7/31/18.
-//  Copyright © 2018 metakave. All rights reserved.
+//  Created by Mac-Admin on 4/15/18.
+//  Copyright © 2018 Admin. All rights reserved.
 //
 
 import UIKit
 
-class LastSliderViewController: UIViewController {
 
+protocol SliderDelegate:NSObjectProtocol {
+    func sliderLastpageDidAppear()->Void
+    func sliderLastpageDidDisappear()->Void
+}
+
+class LastSliderViewController: UIViewController {
+    
+    //MARK: Properties
+    open var delegate:SliderDelegate!
+    
+    //MARK:Outlets
+    //@IBOutlet weak var btnGetStarted: UIBorderButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidAppear(_ animated: Bool) {
+        delegate.sliderLastpageDidAppear()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        delegate.sliderLastpageDidDisappear()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    //MARK: Actions
+    //when click on get started button
+  //  @IBAction func onClickGetStarted(_ sender: UIBorderButton) {
+//        let loginStoryboard = UIStoryboard.init(name: "Login", bundle: nil)
+//        let loginViewController = loginStoryboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+//        
+//        //go to login view controller
+//        self.present(loginViewController, animated: true, completion: nil)
+ //   }
+    
+    
 }
